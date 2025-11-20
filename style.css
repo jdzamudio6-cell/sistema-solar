@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+/* Fondo animado de estrellas */
+#estrellas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Contenedor principal */
+.contenedor-carrusel {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.contenedor-carrusel h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 12px #0ff;
+}
+
+.contenedor-carrusel h2 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* Botones de navegación */
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 100, 200, 0.6);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 20;
+}
+
+.flecha:hover {
+  background: rgba(0, 150, 255, 0.9);
+}
+
+#btn-anterior { left: 20px; }
+#btn-siguiente { right: 20px; }
+
+/* Imagen del planeta */
+.planeta-activo img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.5));
+  margin: 20px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* ✨ EFECTO VISUAL AL REPRODUCIR AUDIO ✨ */
+.planeta-activo img.planeta-activo-efecto {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 25px rgba(0, 220, 255, 0.9));
+  animation: pulsoSuave 2s infinite alternate;
+}
+
+@keyframes pulsoSuave {
+  from { filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.7)); }
+  to   { filter: drop-shadow(0 0 30px rgba(0, 255, 255, 1)); }
+}
+
+/* Texto */
+.planeta-activo h2 {
+  font-size: 2.2rem;
+  margin: 15px 0;
+  color: #0ff;
+}
+
+.planeta-activo p {
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* Móvil */
+@media (max-width: 600px) {
+  .planeta-activo img {
+    width: 180px;
+    height: 180px;
+  }
+  .flecha {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
